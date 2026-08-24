@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental Technology Progress Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 10px;
+      color: #333333;
+    }
+    .dispatch-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 25px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+    }
+    .dispatch-header {
+      border-bottom: 2px solid #0056b3;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .dispatch-header h2 {
+      margin: 0;
+      color: #0056b3;
+      font-size: 22px;
+    }
+    .intro-text {
+      line-height: 1.6;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    .unit-tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .unit-badge {
+      background-color: #e9ecef;
+      color: #495057;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid #ced4da;
+    }
+    .milestone-box {
+      background-color: #f4f8fb;
+      border-left: 4px solid #0056b3;
+      padding: 18px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .milestone-box p {
+      margin: 0 0 12px 0;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    .radio-option input {
+      margin-top: 3px;
+    }
+    .note-text {
+      font-size: 13px;
+      color: #666666;
+      font-style: italic;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .form-group input[type="text"], 
+    .form-group input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .signature-container {
+      margin-top: 20px;
+    }
+    .canvas-wrapper {
+      border: 2px dashed #0056b3;
+      border-radius: 4px;
+      background-color: #fafafa;
+      position: relative;
+      touch-action: none;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 140px;
+      cursor: crosshair;
+    }
+    .btn-group {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-clear {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-clear:hover {
+      background-color: #5a6268;
+    }
+    .btn-submit {
+      background-color: #28a745;
+      color: white;
+    }
+    .btn-submit:hover {
+      background-color: #218838;
+    }
+    .status-msg {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 4px;
+      display: none;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dispatch-container">
+  <div class="dispatch-header">
+    <h2>Dental Technology Dispatch: Progress Check! 🦷✨</h2>
+  </div>
+
+  <p class="intro-text">
+    Quick check-in on your practical progress. We want to make sure everyone is hitting their stride and getting hands-on experience in the lab across your core practical units.
+  </p>
+
+  <div class="unit-tag-container">
+    <span class="unit-badge">HLTDET001 Construct models</span>
+    <span class="unit-badge">HLTDET005 Construct thermoformed bases &amp; appliances</span>
+    <span class="unit-badge">HLTDET016 Design digital dental restorations using CAD</span>
+  </div>
+
+  <form id="progressCheckForm" onsubmit="event.preventDefault(); submitForm();">
+    
+    <div class="milestone-box">
+      <p>Please drop a quick YES or NO to confirm:</p>
+      
+      <label class="radio-option">
+        <input type="radio" name="commenced" value="YES" required>
+        <span><strong>YES</strong> – I have officially commenced work on my Dental Technology assessment requirements for <strong>HLTDET001</strong>, <strong>HLTDET005</strong>, or <strong>HLTDET016</strong>, and have started pouring models, fabricating thermoformed bases, OR designing digital restorations using CAD/scanning.</span>
+      </label>
+      
+      <label class="radio-option">
+        <input type="radio" name="commenced" value="NO" required>
+        <span><strong>NO</strong> – I haven't started practical work on these units yet.</span>
+      </label>
+      
+      <div class="note-text">
+        (Note: This is just a quick progress milestone, not a graded assessment! Your confirmation needs to be backed up by your employer's signature/approval). Got a NO? No stress at all—reach out to your tutor today so we can help you get those models rolling, bases prepped, or CAD scans setup!
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" value="${user.firstName} ${user.lastName}" required>
+      </div>
+      <div class="form-group">
+        <label for="courseName">Course Title:</label>
+        <input type="text" id="courseName" value="${course.name}" readonly style="background-color: #e9ecef;">
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label for="employerName">Employer / Supervisor Name:</label>
+        <input type="text" id="employerName" placeholder="Enter Supervisor Name" required>
+      </div>
+      <div class="form-group">
+        <label for="signDate">Date:</label>
+        <input type="date" id="signDate" required>
+      </div>
+    </div>
+
+    <div class="form-group signature-container">
+      <label>Employer / Supervisor E-Signature:</label>
+      <div class="canvas-wrapper">
+        <canvas id="signaturePad"></canvas>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn-clear" onclick="clearSignature()">Clear Signature</button>
+      <button type="submit" class="btn-submit">Submit Progress Check</button>
+    </div>
+
+    <div id="statusMessage" class="status-msg">
+      Progress check and signature confirmed! Thank you for updating your milestone.
+    </div>
+
+  </form>
+</div>
+
+<script>
+  document.getElementById('signDate').valueAsDate = new Date();
+
+  const canvas = document.getElementById('signaturePad');
+  const ctx = canvas.getContext('2d');
+  let isDrawing = false;
+  let hasSigned = false;
+
+  function resizeCanvas() {
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    ctx.scale(ratio, ratio);
+    ctx.strokeStyle = "#0056b3";
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  setTimeout(resizeCanvas, 100);
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: clientX - rect.left,
+      y: clientY - rect.top
+    };
+  }
+
+  function startDrawing(e) {
+    isDrawing = true;
+    hasSigned = true;
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+  }
+
+  function draw(e) {
+    if (!isDrawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+  }
+
+  function stopDrawing() {
+    isDrawing = false;
+  }
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseleave', stopDrawing);
+
+  canvas.addEventListener('touchstart', startDrawing);
+  canvas.addEventListener('touchmove', draw);
+  canvas.addEventListener('touchend', stopDrawing);
+
+  function clearSignature() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hasSigned = false;
+    document.getElementById('statusMessage').style.display = 'none';
+  }
+
+  function submitForm() {
+    if (!hasSigned) {
+      alert("Please ensure the employer/supervisor signature is drawn before submitting.");
+      return;
+    }
+    
+    document.getElementById('statusMessage').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
